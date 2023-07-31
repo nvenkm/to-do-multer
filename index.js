@@ -34,8 +34,8 @@ app.get("/tasks", (req, res) => {
 });
 
 app.post("/task", upload.single("image"), (req, res) => {
-  console.log(req.body);
-  console.log(req.file);
+  // console.log(req.body);
+  // console.log(req.file);
 
   readTodoFile((err, todos) => {
     if (err) {
