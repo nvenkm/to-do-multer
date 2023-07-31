@@ -25,7 +25,8 @@ app.get("/", (req, res) => {
 app.get("/tasks", (req, res) => {
   readTodoFile((err, todos) => {
     if (err) {
-      console.log(err);
+      // console.log(err);
+      res.status(500).send(err);
     } else {
       res.json(todos);
     }
@@ -39,6 +40,7 @@ app.post("/task", upload.single("image"), (req, res) => {
   readTodoFile((err, todos) => {
     if (err) {
       console.log(err);
+      res.status(500).send(err);
     } else {
       const newTaskId = todos.length > 0 ? todos[todos.length - 1].id + 1 : 1;
 

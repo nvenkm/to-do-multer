@@ -9,7 +9,7 @@ form.addEventListener("submit", (e) => {
   const taskText = document.querySelector("#task-input").value.trim();
   const image = document.querySelector("#image-input").files[0];
   //   console.log(taskText, image);
-  if (taskText != "") {
+  if (taskText !== "") {
     const formData = new FormData();
     formData.append("taskText", taskText);
     formData.append("image", image);
@@ -30,6 +30,9 @@ form.addEventListener("submit", (e) => {
           data.completed
         );
       });
+  } else {
+    alert("PLEASE ENTER A VALID TASK!");
+    return;
   }
   document.querySelector("#task-input").value = "";
 });
